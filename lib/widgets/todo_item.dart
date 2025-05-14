@@ -13,7 +13,7 @@ class TodoItem extends StatelessWidget {
       margin: EdgeInsets.only(bottom: 20),
       child: ListTile(
         onTap: (){
-          print("Click todo iteam!");
+          ;
         },
 //Style ListTile
         shape: RoundedRectangleBorder(
