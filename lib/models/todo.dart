@@ -1,7 +1,7 @@
 class ToDo{
-  final String id;
-  final String title;
-  final bool isDone;
+ String? id;
+ String? title;
+ bool isDone;
 
   ToDo({
     required this.id,
@@ -22,14 +22,5 @@ class ToDo{
       ToDo(id: '09', title: 'ToDo 9'),
       ToDo(id: '10', title: 'ToDo 10'),
     ];
-  }
-
-
-  ({String id, bool isDone, String title}) copyWith({String? id, String? title, bool? isDone}){
-    return(
-      id: id ?? this.id,
-      title: title ?? this.title,
-      isDone: isDone ?? this.isDone
-    );
   }
 }

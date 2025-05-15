@@ -13,7 +13,6 @@ class Home extends StatefulWidget{
 
 class _HomeState extends State<Home> {
   final todoList = ToDo.todoList();
-
   @override
   Widget build(BuildContext context) {
     return  SafeArea(
@@ -33,13 +32,18 @@ class _HomeState extends State<Home> {
             //List todo
                   Expanded(
                     child: ListView(
+                      padding: EdgeInsets.only(bottom: 55),
                       children: [
                         Container(
                           margin: EdgeInsets.only(top: 40, bottom: 20),
                           child: Text("All ToDos", style: TextStyle(fontSize: 30, fontWeight: FontWeight.w500),),
                         ),
-                        for(ToDo todo in todoList)
-                          TodoItem(todo: todo),
+                        for(ToDo todoo in todoList)
+                          TodoItem(
+                            todo: todoo,
+                            onTodoChanged: _handleTodoChange,
+                            onDeleteItem: _deleteTodoItem,
+                          ),
                       ],
                     ),
                   )
@@ -100,6 +104,18 @@ class _HomeState extends State<Home> {
         ),
       )
     );
+  }
+
+  void _deleteTodoItem(String id){
+    setState(() {
+      todoList.removeWhere((item) => item.id == id);
+    });
+  }
+
+  void _handleTodoChange(ToDo todo){
+    setState(() {
+      todo.isDone = !todo.isDone;
+    });
   }
 
   AppBar _buildAppBar() {
