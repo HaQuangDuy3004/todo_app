@@ -1,14 +1,16 @@
 class ToDo{
- String? id;
- String? title;
- bool isDone;
+  String? id;
+  String? title;
+  bool isDone;
 
+  //Constructor todo
   ToDo({
     required this.id,
     required this.title,
     this.isDone = false
   });
 
+  //Convert todo to json
   static List<ToDo> todoList(){
     return[
       ToDo(id: '01', title: 'ToDo 1', isDone: true),

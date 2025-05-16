@@ -12,7 +12,59 @@ class Home extends StatefulWidget{
 }
 
 class _HomeState extends State<Home> {
+  //Khai báo biến todoList để lưu trữ danh sách todo
   final todoList = ToDo.todoList();
+  //Khai báo biến _todoController để lấy giá trị từ TextField
+  final _todoController = TextEditingController();
+  //Khai báo biến _foundTodo để lưu trữ danh sách todo đã lọc
+  List<ToDo> _foundTodo = [];
+
+  @override
+  //initState() chạy một lần duy nhất khi widget được tạo ra
+  void initState() {
+    _foundTodo = todoList;
+    super.initState();
+  }
+
+  //Hàm này sẽ được gọi khi người dùng nhập vào TextField
+  //Hàm này sẽ lọc danh sách todo dựa trên từ khóa tìm kiếm
+  void _runFilter(String enteredKeyword){
+    //Nếu từ khóa tìm kiếm rỗng thì hiển thị toàn bộ danh sách todo
+    List<ToDo> results = [];
+    if(enteredKeyword.isEmpty){
+      results = todoList;
+    }else{
+      results = todoList.where((todo) => todo.title!.toLowerCase().contains(enteredKeyword.toLowerCase())).toList();
+    }
+    //Nếu không tìm thấy todo nào thì hiển thị thông báo
+    setState(() {
+      _foundTodo = results;
+    });
+  }
+
+  void _addTodoItem(String todo){
+    setState(() {
+      todoList.add(ToDo(
+        id: DateTime.now().millisecondsSinceEpoch.toString(),
+        title: todo,
+      ));
+      _todoController.clear();
+    });
+  }
+
+  void _deleteTodoItem(String id){
+    setState(() {
+      todoList.removeWhere((item) => item.id == id);
+    });
+  }
+
+  void _handleTodoChange(ToDo todo){
+    setState(() {
+      todo.isDone = !todo.isDone;
+    });
+  }
+
+
   @override
   Widget build(BuildContext context) {
     return  SafeArea(
@@ -38,7 +90,7 @@ class _HomeState extends State<Home> {
                           margin: EdgeInsets.only(top: 40, bottom: 20),
                           child: Text("All ToDos", style: TextStyle(fontSize: 30, fontWeight: FontWeight.w500),),
                         ),
-                        for(ToDo todoo in todoList)
+                        for(ToDo todoo in _foundTodo.reversed)
                           TodoItem(
                             todo: todoo,
                             onTodoChanged: _handleTodoChange,
@@ -72,6 +124,7 @@ class _HomeState extends State<Home> {
                         borderRadius: BorderRadius.circular(10),
                       ),
                       child: TextField(
+                        controller: _todoController,
                         decoration: InputDecoration(
                           contentPadding: EdgeInsets.all(0),
                           border: InputBorder.none,
@@ -84,7 +137,7 @@ class _HomeState extends State<Home> {
                     margin: EdgeInsets.only(bottom: 20,right: 20),
                     child: ElevatedButton(
                       onPressed: (){
-                        print("Click add todo item!");
+                        _addTodoItem(_todoController.text);
                       },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: tdBlue,
@@ -104,18 +157,6 @@ class _HomeState extends State<Home> {
         ),
       )
     );
-  }
-
-  void _deleteTodoItem(String id){
-    setState(() {
-      todoList.removeWhere((item) => item.id == id);
-    });
-  }
-
-  void _handleTodoChange(ToDo todo){
-    setState(() {
-      todo.isDone = !todo.isDone;
-    });
   }
 
   AppBar _buildAppBar() {
@@ -145,15 +186,8 @@ class _HomeState extends State<Home> {
       ),
     );
   }
-}
 
-class searchBox extends StatelessWidget {
-  const searchBox({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
+  Widget searchBox(){
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 15),
       decoration: BoxDecoration(
@@ -163,6 +197,7 @@ class searchBox extends StatelessWidget {
 
       ),
       child: TextField(
+        onChanged: (value) => _runFilter(value),
         decoration: InputDecoration(
           contentPadding: EdgeInsets.all(0),
           //Text search
