@@ -1,16 +1,23 @@
-# todo_app
+# 📝 ToDo App
 
-A new Flutter project.
+Ứng dụng quản lý công việc đơn giản, cho phép bạn thêm, xóa và đánh dấu hoàn thành các công việc hàng ngày.
 
-## Getting Started
+## 🚀 Tính năng
 
-This project is a starting point for a Flutter application.
+- Thêm công việc mới
+- Chỉnh sửa nội dung công việc
+- Xóa công việc
+- Đánh dấu công việc đã hoàn thành
+- Giao diện thân thiện, dễ sử dụng
 
-A few resources to get you started if this is your first Flutter project:
+## 🛠️ Công nghệ sử dụng
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+- [Dart]
+- [Flutter]
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## 📦 Cài đặt
+
+### 1. Clone repository
+```bash
+git clone https://github.com/HaQuangDuy3004/todo_app
+cd todo_app
