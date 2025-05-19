@@ -21,3 +21,6 @@
 ```bash
 git clone https://github.com/HaQuangDuy3004/todo_app
 cd todo_app
+
+### 2. Cài đặt dependencies
+flutter pub get
