@@ -32,4 +32,4 @@ flutter run
 ``
 
 ## 🖼️ Ảnh minh họa
-![Trang chủ](https://photos.google.com/album/AF1QipOK8Oxb6DFm00olbZU8ZLwgFfSJ9sxsraHfqNh9/photo/AF1QipMSzr-DD67br_iGALIiAoaOhAHqCayA8EzGsrVR)
+![Trang chủ]([https://photos.google.com/album/AF1QipOK8Oxb6DFm00olbZU8ZLwgFfSJ9sxsraHfqNh9/photo/AF1QipMSzr-DD67br_iGALIiAoaOhAHqCayA8EzGsrVR](https://photos.app.goo.gl/pfo1sumpgzzmHuAs5))
