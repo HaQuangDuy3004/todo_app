@@ -32,4 +32,4 @@ flutter run
 ``
 
 ## 🖼️ Ảnh minh họa
-![Trang chủ](https://photos.app.goo.gl/pfo1sumpgzzmHuAs5)
+![Trang chủ](assets/images/screenshot_home_todo.png)
