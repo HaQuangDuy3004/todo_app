@@ -33,3 +33,4 @@ flutter run
 
 ## 🖼️ Ảnh minh họa
 ![Trang chủ](assets/images/screenshot_home_todo.png)
+<img src="assets/images/screenshot_home_todo.png" alt="Logo dự án" width="200">
