@@ -27,6 +27,6 @@ cd todo_app
 flutter pub get
 ``
 ### 3. Chạy ứng dụng
-``bash
+``
 flutter run
 ``
