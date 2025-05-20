@@ -18,12 +18,12 @@
 ## 📦 Cài đặt
 
 ### 1. Clone repository
-```bash
+```
 git clone https://github.com/HaQuangDuy3004/todo_app
 cd todo_app
 ```
 ### 2. Cài đặt dependencies
-``bash
+``
 flutter pub get
 ``
 ### 3. Chạy ứng dụng
