@@ -30,3 +30,6 @@ flutter pub get
 ``
 flutter run
 ``
+
+## 🖼️ Ảnh minh họa
+![Trang chủ](assets/screenshot_home_todo.png)
